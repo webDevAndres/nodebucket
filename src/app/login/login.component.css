@@ -1,0 +1,16 @@
+.center {
+  width: 60%;
+  margin: 10% auto;
+}
+
+.card-header-color {
+  color: #ffdb00;
+}
+
+.card-btn-color {
+  background-color: #ffdb00;
+}
+
+.card-subheader-color {
+  color: #60605c;
+}

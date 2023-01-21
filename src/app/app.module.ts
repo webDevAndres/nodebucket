@@ -24,6 +24,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginComponent } from './login/login.component';
 
+/**
+ * modules for the error messages, forms, and card
+ */
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { MatMenuModule } from '@angular/material/menu';

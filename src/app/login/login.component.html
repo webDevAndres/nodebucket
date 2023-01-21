@@ -5,8 +5,8 @@
         Employee sign-in Page
       </mat-card-title>
 
-      <mat-card-subtitle class="card-subheader-color">
-        You must enter a valid employeeId to continue
+      <mat-card-subtitle >
+        You must enter a valid employee Id to continue: 1007 - 1012
       </mat-card-subtitle>
     </mat-card-header>
 
@@ -36,7 +36,7 @@
 
     <mat-card-actions>
       <button type="submit" fxFlex mat-raised-button color="primary" style="height: 50px; font-size: 18px;"
-        [disabled]="!loginForm.valid" class="card-btn-color" (click)="login();">Log in</button>
+        [disabled]="!loginForm.valid" (click)="login();">Log in</button>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -18,7 +18,6 @@ const config = require('./data/config.json');
  * needed for swagger to work
  */
 const EmployeeAPI = require('./routes/employee-api');
-// const bodyParser = require("body-parser");
 let swaggerUi = require("swagger-ui-express");
 let swaggerJsdoc = require("swagger-jsdoc");
 
@@ -66,8 +65,6 @@ mongoose.connection.on('disconnected', err => {
  * APIS go here
  */
 
-
-
 const options = {
   definition: {
       openapi: '3.0.0',
@@ -77,6 +74,9 @@ const options = {
           version: '1.0.0',
       },
   },
+  /**
+   * apis: This needs to be from the root of the directory otherwise it won't work.
+   */
   apis: ['./server/routes/employee-api.js']
 };
 

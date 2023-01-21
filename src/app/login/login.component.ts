@@ -21,11 +21,15 @@ import { Employee } from '../shared/models/employee.interface';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   errorMessages: Message[] = [];
   employee: Employee;
 
   loginForm: FormGroup = this.fb.group({
+    /**
+     * checks for numbers between 0-9
+     */
     empId: [null, Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])]
   });
 
@@ -37,6 +41,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * The log in method contains the logic for verifying the empId matches a valid employee
+   * from the database. Otherwise an the error message is passed to the error messages property.
+   */
   login() {
     const empId = this.loginForm.controls['empId'].value;
 

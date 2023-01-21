@@ -50,7 +50,7 @@ router.get('/:empId', async (req, res) => {
         })
       }
       /**
-       * if there i sno error, return the emp object from mongoDB
+       * if there is no error, return the emp object from mongoDB
       */
       else {
         console.log(emp);

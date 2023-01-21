@@ -3,7 +3,7 @@
  Title: base-layout.component.ts
  Author: Andres Macias
  Date:   01/15/23
- Description: contains logout and navigation method
+ Description: contains logout method
 ===========================================
 */
 

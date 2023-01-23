@@ -12,9 +12,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { EmployeeService } from '../shared/services/employee.service';
+import { EmployeeService } from '../../shared/services/employee.service';
 import { Message } from 'primeng/api';
-import { Employee } from '../shared/models/employee.interface';
+import { Employee } from '../../shared/models/employee.interface';
 
 @Component({
   selector: 'app-login',

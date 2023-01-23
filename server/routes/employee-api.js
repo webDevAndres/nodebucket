@@ -71,6 +71,29 @@ router.get('/:empId', async (req, res) => {
 
 
 /**
+* openapi: 3.0.0
+* @openapi
+* /api/employees/{empId}/tasks:
+*    get:
+*       summary: returns a employee objects tasks
+*       description: API for returning a single employees tasks from MongoDB
+*       operationId: findAllTasks
+*       parameters:
+*         - name: empId
+*           description: The employee requested by the user
+*           in: path
+*           schema:
+*             type: number
+*           required: true
+*       responses:
+*         '200':
+*           description: Composer document
+*         '500':
+*           description: Server Exception
+*         '501':
+*           description: MongoDB Exception
+*/
+/**
  * findAllTasks
  */
 
@@ -98,6 +121,29 @@ router.get('/:empId/tasks', async (req, res) => {
 })
 
 /**
+* openapi: 3.0.0
+* @openapi
+* /api/employees/{empId}/tasks:
+*    post:
+*       summary: adds a task to an employee document
+*       description: API for creating a task for an employee
+*       operationId: createTask
+*       parameters:
+*         - name: empId
+*           description: The employee requested by the user
+*           in: path
+*           schema:
+*             type: number
+*           required: true
+*       responses:
+*         '200':
+*           description: Composer document
+*         '500':
+*           description: Server Exception
+*         '501':
+*           description: MongoDB Exception
+*/
+/**
  * createTask
  */
 router.post('/:empId/tasks', async (req, res) => {
@@ -113,7 +159,7 @@ router.post('/:empId/tasks', async (req, res) => {
         console.log(emp);
         /**
          * if the response is not null, then add new task
-         * else handle erro
+         * else handle error
          */
         if (emp) {
           const newTask = {

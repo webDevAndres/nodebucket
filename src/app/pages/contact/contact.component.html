@@ -1,1 +1,48 @@
-<p>contact works!</p>
+<!--
+============================================
+ Title: contact.component.html
+ Author: Andres Macias
+ Date:   01/15/23
+ Description: contains code for the home component. Task input, and tasklist containers
+===========================================
+-->
+
+<div fxLayout="column" class="main-welcome">
+  <div fxFlex>
+  <h1 class="title">
+   Contact us <br />
+  </h1>
+</div>
+
+<div fxFlex>
+  <div fxLayout="row" fxLayoutGap="15px" class="task-container" style="margin-top: 20px">
+    <!-- todo column -->
+    <div fxFlex>
+      <mat-card class="mat-elevation-z0">
+        <mat-icon color="primary" style="width: 36px; height: 36px; font-size: 36px;">location_on</mat-icon>
+        <mat-card-title>Location</mat-card-title>
+        <mat-card-content>
+          <div class="task-column">
+            <address>
+              <p>1234 somewhere drive</p>
+              <p>Atlanta, Georgia</p>
+            </address>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <!-- done column -->
+    <div fxFlex>
+      <mat-card class="mat-elevation-z0">
+        <mat-icon color="primary" style="width: 36px; height: 36px; font-size: 36px;">call</mat-icon>
+        <mat-card-title>You can also reach us by:</mat-card-title>
+        <mat-card-content>
+          <div class="task-column">
+            <p>phone: 800-555-555</p>
+            <p>fax: 800-555-3345</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+  </div>
+</div>
+</div>

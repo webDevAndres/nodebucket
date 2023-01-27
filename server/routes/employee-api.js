@@ -143,6 +143,8 @@ router.get('/:empId/tasks', async (req, res) => {
 *         '501':
 *           description: MongoDB Exception
 */
+
+
 /**
  * createTask
  */
@@ -193,7 +195,168 @@ router.post('/:empId/tasks', async (req, res) => {
       'err': config.serverError + ": " + err.message
     })
   }
-})
+});
 
+/**
+* openapi: 3.0.0
+* @openapi
+* /api/employees/{empId}/tasks:
+*    put:
+*       summary: updates tasks to an employee document
+*       description: API for updating tasks for an employee
+*       operationId: updateTask
+*       parameters:
+*         - name: empId
+*           description: The employee requested by the user
+*           in: path
+*           schema:
+*             type: number
+*           required: true
+*       responses:
+*         '200':
+*           description: Composer document
+*         '500':
+*           description: Server Exception
+*         '501':
+*           description: MongoDB Exception
+*/
+
+/**
+ * updateTask
+ */
+router.put('/:empId/tasks', async (req, res) => {
+  try {
+    Employee.findOne({ 'empId': req.params.empId }, function (err, emp) {
+      if (err) {
+        console.log(err);
+        res.status(501).send({
+          'err': 'MongoDb server error: ' + ": " + err.message
+        })
+      }
+      else {
+        console.log(emp);
+
+        if (emp) {
+          emp.set({
+            todo: req.body.todo,
+            done: req.body.done
+          });
+
+          emp.save(function (err, updatedEmp) {
+            if (err) {
+              console.log(err);
+              res.status(501).send({
+                'err': 'MongoDB server error: ' + err.message
+              })
+            } else {
+              console.log(updatedEmp);
+              res.json(updatedEmp);
+            }
+          });
+        }
+        else {
+          console.log('no Employee matching the passed in empId: ' + req.params.empId);
+          res.status(401).send({
+            'err': 'EmployeeId: ' + req.params.empId + ' does not belong to a registered user.'
+          })
+        }
+
+      }
+    })
+  } catch (e) {
+    console.log(e);
+    res.status(500).send({
+      'err': config.serverError + ": " + err.message
+    })
+  }
+});
+
+/**
+* openapi: 3.0.0
+* @openapi
+* /api/employees/{empId}/tasks/{taskId}:
+*    delete:
+*       summary: removes a task to an employee document
+*       description: API for deleting a task for an employee
+*       operationId: deleteTask
+*       parameters:
+*         - name: empId
+*           description: The employee requested by the user
+*           in: path
+*           schema:
+*             type: number
+*           required: true
+*         - name: taskId
+*           description: The id of the task to be deleted
+*           in: path
+*           schema:
+*           type: String
+*       responses:
+*         '200':
+*           description: Composer document
+*         '500':
+*           description: Server Exception
+*         '501':
+*           description: MongoDB Exception
+*/
+
+/**
+ * deleteTask
+ */
+
+router.delete('/:empId/tasks/:taskId', async (req, res) => {
+  try {
+    Employee.findOne({ 'empId': req.params.empId }, function (err, emp) {
+      if (err) {
+        console.log(err);
+        res.status(501).send({
+          'err': 'MongoDb server error: ' + ": " + err.message
+        })
+      }
+      else {
+        console.log(emp);
+
+        if (emp) {
+          const taskId = req.params.taskId;
+
+          const todoItem = emp.todo.find(item => item._id.toString() === taskId);
+          const doneItem = emp.done.find(item => item._id.toString() === taskId);
+
+          if (todoItem) {
+            emp.todo.id(todoItem._id).remove();
+
+            emp.save(function (err, updatedTodoItemEmp) {
+              if (err) {
+                console.log(err);
+                res.status(501).send({
+                  'err': 'MongoDB server error: ' + err.message
+                })
+              } else {
+                console.log(updatedTodoItemEmp);
+                res.json(updatedTodoItemEmp);
+              }
+            })
+          } else {
+            console.log('Invalid taskId: ' + taskId);
+            res.status(401).send({
+              'err': 'Invalid taskId: ' + taskId
+            })
+          }
+        }
+        else {
+          console.log('no Employee matching the passed in empId: ' + req.params.empId);
+          res.status(501).send({
+            'err': 'EmployeeId: ' + req.params.empId + ' does not belong to a registered user.'
+          })
+        }
+      }
+    })
+  } catch (e) {
+    console.log(e);
+    res.status(500).send({
+      'err': config.serverError + ": " + err.message
+    })
+  }
+});
 
 module.exports = router;

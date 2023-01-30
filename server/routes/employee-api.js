@@ -336,6 +336,21 @@ router.delete('/:empId/tasks/:taskId', async (req, res) => {
                 res.json(updatedTodoItemEmp);
               }
             })
+          } else if (doneItem) {
+              emp.done.id(doneItem._id).remove();
+
+              emp.save(function (err, updatedDoneItemEmp) {
+                if (err) {
+                  console.log(err);
+                  res.status(501).send({
+                    'err': 'MongoDB server error: ' + err.message
+                  })
+                } else {
+                  console.log(updatedDoneItemEmp);
+                  res.json(updatedDoneItemEmp);
+                }
+              })
+
           } else {
             console.log('Invalid taskId: ' + taskId);
             res.status(401).send({

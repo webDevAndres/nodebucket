@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit {
   constructor(private taskService: TaskService, private cookieService: CookieService, private fb: FormBuilder, private dialog: MatDialog) {
     this.employee = {} as Employee;
     this.dialogData = {} as DialogData;
+
     this.todo = [];
     this.done = [];
 
@@ -91,7 +92,7 @@ export class HomeComponent implements OnInit {
 
   deleteTask(taskId: string) {
     this.dialogData.header = 'Delete Record Dialog';
-    this.dialogData.content = 'Delete Record Dialog';
+    this.dialogData.content = 'Are you sure you want to delete this task?';
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: this.dialogData,
@@ -127,6 +128,7 @@ export class HomeComponent implements OnInit {
 
       // console.log
       console.log('Item reordered in the same column');
+
       this.updateTaskList(this.empId, this.todo, this.done);
 
     } else {

@@ -1,0 +1,21 @@
+.main-welcome {
+  background-color: #e5e5f7;
+  background: repeating-linear-gradient(
+    -45deg,
+    #f9ec42,
+    #f6ffaa 5px,
+    #fffecb 5px,
+    #f5ffd9 25px
+  );
+  min-height: 100%;
+}
+
+.title {
+  text-align: center;
+  font-size: 48px;
+}
+
+mat-card {
+  margin: auto;
+  background-color: rgb(181, 181, 181);
+}

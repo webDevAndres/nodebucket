@@ -10,6 +10,10 @@
     "server": "nodemon ./server/index.js",
     "dev": "ng build && node ./server/index.js"
   },
+  "engines": {
+    "node": "19.4.0",
+    "npm": ">=9.2.0"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.0.0",

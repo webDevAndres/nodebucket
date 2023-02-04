@@ -12,8 +12,7 @@
   <h1 class="title">
     Welcome to WEB 450's - nodebucket Project <br />
     <span class="subtitle">
-      Pay close attention to the requirements, double and triple check the files for code attribution, and do not wait
-      until the last minute to begin working on your tasks.
+      Enter a task below to get started. You may also drag and drop tasks to mark them as complete.
     </span>
   </h1>
 </div>
@@ -23,7 +22,7 @@
     <mat-card>
       <form [formGroup]="taskForm" (ngSubmit)="createTask(); taskForm.reset();">
         <mat-card-content>
-          <mat-form-field appearance="fill" class="w-100">
+          <mat-form-field appearance="fill" class="width-100">
             <input type="text" matInput name="task" formControlName="task" placeholder="Enter a task name...">
             <button type="submit" [disabled]="!taskForm.valid" mat-icon-button matSuffix>
               <mat-icon color="primary" style="width: 36px; height: 36px; font-size: 36px;">add_circle</mat-icon>

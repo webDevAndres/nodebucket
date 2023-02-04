@@ -17,6 +17,10 @@
   margin: 0 auto;
 }
 
+.width-100 {
+  width: 100%;
+}
+
 .task-column {
   border: 1px solid #ccc;
   min-height: 68px;

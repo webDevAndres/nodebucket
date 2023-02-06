@@ -13,7 +13,11 @@ const itemSchema = require('./item');
 const Schema = mongoose.Schema;
 
 /**
- * matches the fields in the database and impacts the item schema.
+ * Description: creates an employee schema to be used in the employee model
+ * empId: unique employee id number (required)
+ * todo: array of items to be completed
+ * done: array of items that have been completed
+ * collection: name of the collection in the database
  */
 let employeeSchema = new Schema({
   empId: {type: Number, unique: true, required: true},

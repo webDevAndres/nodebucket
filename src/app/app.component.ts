@@ -1,3 +1,12 @@
+/*
+============================================
+ Title: app.component.ts
+ Author: Andres Macias
+ Date:   01/15/23
+ Description: contains the app component class that will be used to create the app component
+===========================================
+*/
+
 import { Component } from '@angular/core';
 
 @Component({

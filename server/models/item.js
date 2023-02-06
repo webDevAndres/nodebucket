@@ -11,6 +11,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+// Description: create Item schema to be used in employee model
 let itemSchema = new Schema({
   text: { type: String }
 })

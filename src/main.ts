@@ -1,3 +1,7 @@
+/**
+ * Description: Main entry point for the application
+ */
+
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 

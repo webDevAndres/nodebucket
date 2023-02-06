@@ -16,6 +16,16 @@ import { Item } from '../models/item.interface';
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * Description: This is the task service class that will be used to create the task service.
+ * http: This is the http client that will be used to make http requests.
+ * methods: findAllTasks, createTask, updateTask, deleteTask
+ * findAllTasks: This method will be used to retrieve all tasks from the database.
+ * createTask: This method will be used to create a new task in the database.
+ * updateTask: This method will be used to update a task in the database.
+ * deleteTask: This method will be used to delete a task in the database.
+ */
 export class TaskService {
 
   constructor(private http: HttpClient) { }

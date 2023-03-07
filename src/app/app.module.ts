@@ -45,6 +45,7 @@ import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.c
  */
 import {MatDialogModule} from '@angular/material/dialog';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { ErrorComponent } from './pages/error/error.component';
 
 
 
@@ -58,7 +59,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     ContactComponent,
     AboutComponent,
     NotFoundComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
